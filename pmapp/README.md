@@ -1,5 +1,7 @@
 # pmapp
 
+vue 脚手架
+
 > A Vue.js project
 
 ## Build Setup
