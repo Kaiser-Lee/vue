@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import router from './router'
 import App from './App'
+import MessageBox from 'mint-ui/lib/message-box'
+import 'mint-ui/lib/message-box/style.css'
+
+window.MessageBox = MessageBox // 挂在window的对象中，就不用每个文件需要引入，方便又省事，axios的使用方法和此类似
 
 Vue.config.productionTip = false
 

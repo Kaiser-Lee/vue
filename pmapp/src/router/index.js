@@ -1,16 +1,54 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
+import { MessageBox } from 'mint-ui'
 
 import login from '@/page/login/login'
+import home from '@/page/home/home'
+import personalcenter from '@/page/usercenter/personal-center'
+import { getLogin } from '../assets/script/local.storage'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'login',
-      component: login
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: home
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: login
+  },
+  {
+    path: '/personalcenter',
+    name: 'personalcenter',
+    component: personalcenter,
+    meta: {
+      login: true
     }
-  ]
+  }
+]
+
+const router = new VueRouter({
+  routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.login) {
+    if (getLogin().name && getLogin().phone) { // 通过store获取当前的token是否存在
+      next()
+    } else {
+      MessageBox.alert('未登录，请先登录').then(() => {
+        next({
+          path: '/login',
+          query: { redirect: to.fullPath }
+        })
+      })
+    }
+  } else {
+    next()
+  }
+})
+
+export default router
