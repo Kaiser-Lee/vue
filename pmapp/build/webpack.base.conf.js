@@ -36,6 +36,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'configPort': path.resolve(__dirname, '../src/public/config.js'),
     }
   },
   module: {

@@ -1,96 +1,89 @@
 <template>
     <div>
-        <form class="form-horizontal" id="login-form">
-            <div class="form-head">
-                <div class="form-group-head">
-                    <img src="" width=35 height=35>
+        <center>
+            <form role="form" class="form">
+                <div class="form-head">
+                    <h3>登录</h3>
+                    <p>还没有账号？<a href="">立即注册</a></p>
                 </div>
-            </div>
-            <div class="form-content">
+                <br>
                 <div class="form-group">
-                    <div class="form-group-items">
-                        <i class="iconfont icon-yonghu"></i>
-                        <input type="text" id="userName" name="userName" value="" placeholder="手机号/微信号/QQ号"/>
+                    <div class="ui-input">
+                        <input ng-model="username" type="text"  class="user" id="userName" placeholder="手机号">
+                        <br>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="form-group-items">
-                        <i class="iconfont icon-password"></i>
-                        <input type="password" id="password" name="password" value="" placeholder="密码"/>
+                    <div>&nbsp;</div>
+                    <div class="ui-input">
+                        <input ng-model="password" type="password"   placeholder="密码">
+                        <br>
                     </div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <button class="ui-button ui-button--primary" @click="login()">登录</button>
                 </div>
-
-                <div class="form-group">
-                    <div class="form-group-foot">
-                        <a id="login-btn">登录</a>
-                    </div>
-                </div>
-
-            </div>
-        </form>
+            </form>
+        </center>
     </div>
 </template>
-<style>
-  .form-horizontal{
-    width: 80%;
-    margin-top: 150px;
-    margin-left: 10%;
-    height: 90%;
+<script>
+export default {
+  data () {
+    return {
+      logo: '../../static/images/Logo.jpg',
+      inputColor: '#8ECBEB'
+    }
+  },
+  methods: {
+    login () {
+      let a = 1
+      console.log(a)
+    }
   }
-  .form-head{
-      width: 80%;
-      margin-left: 10%;
-  }
-  .form-group-head{
-      width:100%;
-  }
-  .form-group-head img{
-      width: 10%;
-      margin-left: 45%;
-  }
-  .form-content{
-      width: 80%;
-      margin-left: 10%;
-  }
-  .form-group{
-      width: 26%;
-      margin-left: 36%;
-      margin-top: 15px;
-  }
-  .form-group .form-group-items{
-      width: 100%;
-      height: 40px;
-      border: 1px solid #B6B4B6;
-      border-radius: 5px;
-  }
-  .form-group-items input{
-      width: 80%;
-      margin-left: 15px;
-      height: 30px;
-      border: 0px;
-      margin-top: 5px;
-      outline: none;
-  }
-  .form-group-items i{
-      width: 10%;
-      height: 20px;
-      float: left;
-      line-height: 40px;
-      margin-left: 5px;
-  }
-  .form-group-foot{
-      width: 100%;
-  }
-  .form-group-foot a{
-      width: 100%;
-      height: 40px;
-      border-radius: 5px;
-      outline: none;
-      display: block;
-      border: 1px solid #B6B4B6;
-      line-height: 40px;
-      text-align: center;
-      cursor: pointer;
-  }
+}
+</script>
+<style type="text/css">
+form, input {
+  margin: 0;
+  padding: 0;
+}
+input:focus {
+    border-bottom: 1px solid #30C37C;
+}
+body {
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+a {
+  text-decoration: none;
+}
+input{
+  border:0px;
+  width: 378px;
+  height: 58px;
+  outline: none;
+}
+.form{
+  width: 460px;
+  height: 502px;
+  margin-top: 90px;
+}
+.ui-input{
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  width: 380px;
+  height: 60px;
+}
+.ui-button{
+  width: 380px;
+  height: 40px;
+  border: 0;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+.ui-button:hover {
+    border: 1px solid #30C37C;
+}
 </style>
