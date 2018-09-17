@@ -12,7 +12,7 @@ let serviceList = [
   }
 ]
 let serviceIndex = 0
-let service = serviceList [servieIndex].service
+let service = serviceList[serviceIndex].service
 let APIS = {
   'userLogin': service + '/api/user/userLogin'
 }

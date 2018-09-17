@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '../store/index'
 import { MessageBox } from 'mint-ui'
 
 import login from '@/page/login/login'
@@ -31,6 +32,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  store,
   routes
 })
 

@@ -26,6 +26,8 @@
     </div>
 </template>
 <script>
+import { APIS } from 'configPort'
+import {mapActions} from 'vuex'
 export default {
   data () {
     return {
@@ -35,9 +37,22 @@ export default {
   },
   methods: {
     login () {
-      let a = 1
-      console.log(a)
-    }
+      let self = this
+      let param = {
+        url: APIS.userLogin,
+        param: {
+          userName: '0039260',
+          password: '123456'
+        },
+        type: 'post'
+      }
+      self.inintLoginInfo(param)
+      // nativeApi.initAjax(param)
+    },
+    ...mapActions([
+      'loginName',
+      'inintLoginInfo'
+    ])
   }
 }
 </script>

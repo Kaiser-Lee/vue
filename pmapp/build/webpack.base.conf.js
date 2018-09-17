@@ -37,6 +37,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'configPort': path.resolve(__dirname, '../src/public/config.js'),
+      'nativeApi': path.resolve(__dirname, '../src/public/nativeApi.js')
     }
   },
   module: {
