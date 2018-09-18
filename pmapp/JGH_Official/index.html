@@ -66,14 +66,13 @@
      <div id="ups-banner">
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" style="background-image: url(./public/img/4.jpg)">
+          <div class="swiper-slide" style="background-image: url(./public/img/4.jpg);">
+          </div>
+          <div class="swiper-slide" style="background-image: url(./public/img/5.jpg);">
+           
+          </div>
+          <div class="swiper-slide" style="background-image: url(./public/img/6.jpg);">
 
-          </div>
-          <div class="swiper-slide">
-            <img src="./public/img/2.jpg">
-          </div>
-          <div class="swiper-slide">
-            <img src="./public/img/3.jpg">
           </div>
         </div>
         <div class="bottom-nav"><div class="swiper-pagination"></div></div>
@@ -145,12 +144,10 @@
 
   // 顶部导航栏选中状态设置 开始 
   $(function(){
+    $('.swiper-slide').css('height', '590px');
     $('.nav-ul li').click (function () {
       $(this).siblings('li').removeClass('selected');
       $(this).addClass('selected');
-      
-      //var liIndex = $(this).attr('index');
-      //console.log(liIndex);
       $.scrollify.move($(this).index());
     });
   });
@@ -159,7 +156,7 @@
   var list = document.getElementsByTagName("li");
   // 整屏滚动设置 开始
   $(function() {
-    $('.panel').css({'height': $(window).height()});
+    $('.panel').css({'height': $('.panel').height()});
     $.scrollify({
       section: '.panel',
       before: function (index, sections) {
@@ -172,6 +169,7 @@
           $(".header-panel").css("background",'transparent');
         } else {
           $(".header-panel").css("background",'#fff');
+          $(".header-panel").css("opacity",'0.3');
         }
       },
       after: function (index, sections){
