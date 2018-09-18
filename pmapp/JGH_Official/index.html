@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>中国巾帼会</title>
+<link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">
+<link href="./public/css/ups.css" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; color: #000;}
+.swiper-container {
+    width: 100%;
+    /* height: 300px; */
+}
+.header-panel{
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  z-index: 999;
+  background-color: #fff;
+  background: transparent;
+}
+.header-panel ul{
+  list-style: none;
+  display: inline;
+  float: right;
+  margin-right: 20px;
+  line-height: 50px;
+  height: 50px;
+}
+.header-panel ul li{
+  float: left;
+  line-height: 30px;
+  height: 30px;
+  width: 80px;
+  border-radius:12px;
+  margin-top: 10px;
+}
+.header-panel ul li:hover{
+  color: #00C0FF;
+}
+.selected{
+  background-color: #00C0FF;
+  color: #fff;
+}
+</style>
+</head>
+<body>
+
+  <!-- 头部导航栏开始 -->
+  <div class="header-panel">
+    <ul class="nav-ul">
+      <li class="selected" id="0">首页</li>
+      <li id="1">关于</li>
+      <li id="2">文化</li>
+      <li id="3">产品</li>
+      <li id="4">联系</li>
+    </ul>
+  </div>
+  <!-- 头部导航栏结束 -->
+   
+
+  <!-- 第一屏开始 -->
+  <div class="panel">
+     <!-- 轮播位置开始 -->
+     <div id="ups-banner">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-image: url(./public/img/4.jpg)">
+
+          </div>
+          <div class="swiper-slide">
+            <img src="./public/img/2.jpg">
+          </div>
+          <div class="swiper-slide">
+            <img src="./public/img/3.jpg">
+          </div>
+        </div>
+        <div class="bottom-nav"><div class="swiper-pagination"></div></div>
+          <!-- <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div> -->
+      </div>
+    </div>
+    <!-- 轮播图位置结束 -->
+  </div>
+  <!-- 第一屏结束 -->
+
+  <div class="panel" style="background-color: #608385b2;">
+    <h2>第二屏</h2>
+  </div>
+  <div class="panel" style="background-color: rgba(231, 216, 81, 0.74);">
+    <h2>第三屏</h2>
+  </div>
+  <div class="panel" style="background-color: #0ff;">
+    <h2>第四屏</h2>
+  </div>
+  <div class="panel" style="background-color: rgb(182, 146, 173);">
+    <h2>第五屏</h2>
+  </div>
+
+
+
+
+<script src="./public/js/jquery-1.8.3.min.js"></script>
+<script src="./public/js/jquery.easing.1.3.js"></script>
+<script src="https://cdn.bootcss.com/scrollify/1.0.19/jquery.scrollify.min.js"></script>
+<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>
+<script src="./public/js/ups.js"></script>
+<script>
+
+  // 第一屏设置 开始
+  // swiper 设置
+  var mySwiper = new Swiper('.swiper-container', {
+    speed: 1000,
+    longSwipes: false,
+    loop: true,
+    autoplay: {
+      disableOnInteraction: false,
+    },
+    navigation: {
+		  nextEl: '.swiper-button-next',
+		  prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    on: {
+      autoplayStop: function() {
+        this.$el.find(".ups-icon-videoplay").addClass('stop-status');
+      },
+      autoplayStart: function() {
+        this.$el.find(".ups-icon-videoplay").removeClass('stop-status');
+      },
+
+    }
+  });
+
+  // swiper-slide 设置切换  切换到第几个
+  // $('#btn').click(function(){
+  //   mySwiper.slideTo(0, 1000, false);//切换到第一个slide，速度为1秒
+  // })
+
+  // 第一屏设置 结束
+
+  // 顶部导航栏选中状态设置 开始 
+  $(function(){
+    $('.nav-ul li').click (function () {
+      $(this).siblings('li').removeClass('selected');
+      $(this).addClass('selected');
+      
+      //var liIndex = $(this).attr('index');
+      //console.log(liIndex);
+      $.scrollify.move($(this).index());
+    });
+  });
+  // 顶部导航栏选中状态设置 结束
+
+  var list = document.getElementsByTagName("li");
+  // 整屏滚动设置 开始
+  $(function() {
+    $('.panel').css({'height': $(window).height()});
+    $.scrollify({
+      section: '.panel',
+      before: function (index, sections) {
+        $('.nav-ul li').removeClass(function () {
+          return 'selected';
+        });
+        $(list[index]).addClass('selected');
+        if (index == 0) {
+          //$(".header-panel").css("opacity",'0.01');
+          $(".header-panel").css("background",'transparent');
+        } else {
+          $(".header-panel").css("background",'#fff');
+        }
+      },
+      after: function (index, sections){
+        
+       
+      }
+    });
+  });
+  // 整屏滚动设置结束
+
+  </script>
+</body>
+</html>
