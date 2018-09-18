@@ -43,6 +43,20 @@
   background-color: #00C0FF;
   color: #fff;
 }
+.swiper-content{
+  text-align: center; /*让div内部文字居中*/
+  background-color: #fff;
+  border-radius: 20px;
+  width: 700px;
+  height: 400px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+}
 </style>
 </head>
 <body>
@@ -67,6 +81,9 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" style="background-image: url(./public/img/4.jpg);">
+            <div class="swiper-content">
+
+            </div>
           </div>
           <div class="swiper-slide" style="background-image: url(./public/img/5.jpg);">
            
@@ -111,10 +128,9 @@
   // swiper 设置
   var mySwiper = new Swiper('.swiper-container', {
     speed: 1000,
-    longSwipes: false,
     loop: true,
     autoplay: {
-      disableOnInteraction: false,
+      delay: 5000,//1秒切换一次
     },
     navigation: {
 		  nextEl: '.swiper-button-next',
@@ -167,6 +183,8 @@
         if (index == 0) {
           //$(".header-panel").css("opacity",'0.01');
           $(".header-panel").css("background",'transparent');
+          
+          $(".header-panel").css("opacity",'');
         } else {
           $(".header-panel").css("background",'#fff');
           $(".header-panel").css("opacity",'0.3');
