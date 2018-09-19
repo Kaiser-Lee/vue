@@ -5,6 +5,7 @@
                 <div class="form-head">
                     <h3>登录</h3>
                     <p>还没有账号？<a href="">立即注册</a></p>
+                   <!-- <span v-text="loginInfo.loginName"></span>-->
                 </div>
                 <br>
                 <div class="form-group">
@@ -32,7 +33,8 @@ export default {
   data () {
     return {
       logo: '../../static/images/Logo.jpg',
-      inputColor: '#8ECBEB'
+      inputColor: '#8ECBEB',
+      loginInfo: this.$store.state.loginInfo
     }
   },
   methods: {
@@ -40,11 +42,11 @@ export default {
       let self = this
       let param = {
         url: APIS.userLogin,
-        param: {
-          userName: '0039260',
+        params: {
+          username: '0039260',
           password: '123456'
         },
-        type: 'post'
+        method: 'get'
       }
       self.inintLoginInfo(param)
       // nativeApi.initAjax(param)

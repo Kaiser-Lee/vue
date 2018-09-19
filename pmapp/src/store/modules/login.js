@@ -14,6 +14,19 @@ const state = {
   loginName: '开发中！'
 }
 
+const actions = {
+  inintLoginInfo ({commit, state}, args) {
+    return new Promise((resolve, reject) => {
+      console.log(args)
+      console.log(state)
+      Vue.http(args).then(function (retData) {
+        console.log(retData)
+      })
+    })
+  }
+}
+
 export default {
-  state
+  state,
+  actions
 }

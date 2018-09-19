@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store/index'
+import resource from 'vue-resource'
 import { MessageBox } from 'mint-ui'
 
+import app from '../App.vue'
 import login from '@/page/login/login'
 import home from '@/page/home/home'
 import personalcenter from '@/page/usercenter/personal-center'
 import { getLogin } from '../assets/script/local.storage'
 
 Vue.use(VueRouter)
+Vue.use(resource)
 
 const routes = [
   {
@@ -32,7 +35,6 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  store,
   routes
 })
 
@@ -53,4 +55,8 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-export default router
+new Vue({
+  router,
+  store,
+  render: h => h(app)
+}).$mount('#app')
