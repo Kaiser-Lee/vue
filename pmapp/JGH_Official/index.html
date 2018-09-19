@@ -81,9 +81,10 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" style="background-image: url(./public/img/4.jpg);">
+            <!-- 第一块轮播 内容 开始 -->
             <div class="swiper-content">
-
             </div>
+            <!-- 第一块轮播 内容 结束 -->
           </div>
           <div class="swiper-slide" style="background-image: url(./public/img/5.jpg);">
            
@@ -160,7 +161,7 @@
 
   // 顶部导航栏选中状态设置 开始 
   $(function(){
-    $('.swiper-slide').css('height', '590px');
+    $('.swiper-slide').css('height', $(document).outerHeight());
     $('.nav-ul li').click (function () {
       $(this).siblings('li').removeClass('selected');
       $(this).addClass('selected');
@@ -172,7 +173,7 @@
   var list = document.getElementsByTagName("li");
   // 整屏滚动设置 开始
   $(function() {
-    $('.panel').css({'height': $('.panel').height()});
+    //$('.panel').css({'height': $('.panel').height()});
     $.scrollify({
       section: '.panel',
       before: function (index, sections) {
@@ -191,8 +192,6 @@
         }
       },
       after: function (index, sections){
-        
-       
       }
     });
   });
