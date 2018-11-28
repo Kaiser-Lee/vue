@@ -43,7 +43,7 @@ export default {
       let param = {
         url: APIS.userLogin,
         params: {
-          username: '0039260',
+          username: 'admin',
           password: '123456'
         },
         method: 'get'

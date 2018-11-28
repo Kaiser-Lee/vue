@@ -5,15 +5,15 @@
  */
 let serviceList = [
   {
-    service: 'http://192.168.1.134:8080/xweb'
+    service: 'http://192.168.1.103:8088/'
   },
   {
-    service: 'http://122.114.110.171:8080/xweb'
+    service: 'http://122.114.110.171:8088/'
   }
 ]
-let serviceIndex = 0
+let serviceIndex = 1
 let service = serviceList[serviceIndex].service
 let APIS = {
-  'userLogin': service + '/api/user/userLogin'
+  'userLogin': service + 'api/login/userLogin'
 }
 export { APIS, service }
