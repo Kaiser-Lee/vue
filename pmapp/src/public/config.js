@@ -9,11 +9,14 @@ let serviceList = [
   },
   {
     service: 'http://122.114.110.171:8088/'
+  },
+  {
+    service: 'http://122.114.110.171:8086/'
   }
 ]
 let serviceIndex = 1
 let service = serviceList[serviceIndex].service
 let APIS = {
-  'userLogin': service + 'api/login/userLogin'
+  'userLogin': serviceList[2].service + '/authSystem/login/'
 }
 export { APIS, service }
